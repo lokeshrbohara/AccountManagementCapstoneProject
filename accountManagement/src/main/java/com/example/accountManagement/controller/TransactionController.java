@@ -1,8 +1,12 @@
 package com.example.accountManagement.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -27,6 +31,22 @@ public class TransactionController {
 		return transactionService.performTransaction(transaction);
 		
 	}
+	
+	@GetMapping("{accNo}")
+	public List<Transaction> getTopTransactions(@PathVariable("accNo") long accNo){
+		System.out.println("Acc No: "+accNo);
+		return transactionService.getTopTransactions(accNo);
+		
+	}
+	
+	@GetMapping("{accNo}/{limit}")
+	public List<Transaction> getTop5Transactions(@PathVariable("accNo") long accNo, @PathVariable("limit") int limit){
+		System.out.println("Acc No: "+accNo);
+		return transactionService.getTop5Transactions(accNo, limit);
+		
+	}
+	
+	
 	
 	
 	

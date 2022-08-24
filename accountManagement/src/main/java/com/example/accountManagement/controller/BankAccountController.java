@@ -34,18 +34,18 @@ public class BankAccountController {
 		
 	}
 	
+	@GetMapping("{customerId}")
+	public List<BankAccount> getAccountsWithCustomerId(@PathVariable("customerId") long customerId){
+		return bankAccountService.getAccountFromCustomerId(customerId);
+	}
+	
 	@GetMapping
 	public List<BankAccount> getAllAccounts(){
 		return bankAccountService.getAllAccounts();
 	}
 	
-//	@GetMapping
-//	public ResponseEntity<BankAccount> getAccountfromAccountNo(@PathVariable("accNo") long accNo){
-//		return new ResponseEntity<BankAccount>(
-//				bankAccountService.getAccountFromAccountNo(accNo),
-//				HttpStatus.OK
-//				);
-		
-//	}
+	
+	
+	
 	
 }

@@ -9,7 +9,7 @@ public interface BankAccountService {
 
 	BankAccount saveAccount(BankAccount bankAccount);
 	
-	Optional<BankAccount> getAccountFromAccountNo(long accountNo);
+	List<BankAccount> getAccountFromCustomerId(long customerId);
 	
 	List<BankAccount> getAllAccounts();
 }

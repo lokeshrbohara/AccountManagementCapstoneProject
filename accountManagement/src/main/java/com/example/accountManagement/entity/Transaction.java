@@ -6,6 +6,9 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+
+import org.hibernate.annotations.CreationTimestamp;
+
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -37,8 +40,8 @@ public class Transaction {
 	@Column(name = "amount")
 	private double amount;
 	
-	@Column(name = "timestamp", insertable = false, updatable = false)
-	@Temporal(TemporalType.TIMESTAMP)
+	@Column(name = "timestamp", updatable = false)
+	@CreationTimestamp
 	private Date timestamp;
 	
 	@Column(name = "result")

@@ -23,16 +23,19 @@ public class BankAccountServiceImpl implements BankAccountService{
 		return bankAccountRepository.save(bankAccount);
 	}
 
-	@Override
-	public Optional<BankAccount> getAccountFromAccountNo(long accountNo) {
-		// TODO Auto-generated method stub
-		return bankAccountRepository.findById(accountNo);
-	}
 
 	@Override
 	public List<BankAccount> getAllAccounts() {
 		// TODO Auto-generated method stub
 		return bankAccountRepository.findAll();
+	}
+
+
+	@Override
+	public List<BankAccount> getAccountFromCustomerId(long customerId) {
+		// TODO Auto-generated method stub
+		
+		return bankAccountRepository.findAccountsFromCustomerId(customerId);
 	}
 
 }

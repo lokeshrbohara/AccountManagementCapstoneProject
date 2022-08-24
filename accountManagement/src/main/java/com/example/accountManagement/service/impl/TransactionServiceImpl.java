@@ -1,8 +1,10 @@
 package com.example.accountManagement.service.impl;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
 import com.example.accountManagement.entity.BankAccount;
@@ -67,6 +69,20 @@ public class TransactionServiceImpl implements TransactionService{
 			return "Account Number is Wrong";
 		}
 			
+	}
+
+	@Override
+	public List<Transaction> getTop5Transactions(long accNo, int limit) {
+		// TODO Auto-generated method stub
+		
+		return transactionRepository.findTop5TransactionByAccNo(accNo, PageRequest.of(0, limit));
+	}
+
+	@Override
+	public List<Transaction> getTopTransactions(long accNo) {
+		// TODO Auto-generated method stub
+		
+		return transactionRepository.findTopTransactionByAccNo(accNo);
 	}
 
 }
