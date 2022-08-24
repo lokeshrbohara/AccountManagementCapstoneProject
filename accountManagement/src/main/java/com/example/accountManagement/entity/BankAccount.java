@@ -10,6 +10,7 @@ import javax.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 @Data
 @AllArgsConstructor
@@ -31,5 +32,46 @@ public class BankAccount {
 	
 	@Column(name = "type")
 	private String type = "Saving";
+	
+	
+
+	@Override
+	public String toString() {
+		return "BankAccount [accountNo=" + accountNo + ", customerid=" + customerid + ", bankBalance=" + bankBalance
+				+ ", type=" + type + "]";
+	}
+
+	public long getAccountNo() {
+		return accountNo;
+	}
+
+	public void setAccountNo(long accountNo) {
+		this.accountNo = accountNo;
+	}
+
+	public long getCustomerid() {
+		return customerid;
+	}
+
+	public void setCustomerid(long customerid) {
+		this.customerid = customerid;
+	}
+
+	public double getBankBalance() {
+		return bankBalance;
+	}
+
+	public void setBankBalance(double bankBalance) {
+		this.bankBalance = bankBalance;
+	}
+
+	public String getType() {
+		return type;
+	}
+
+	public void setType(String type) {
+		this.type = type;
+	}
+	
 	
 }
