@@ -1,5 +1,6 @@
 package com.example.accountManagement.repository;
 
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.data.domain.Pageable;
@@ -19,6 +20,9 @@ public interface TransactionRepository extends JpaRepository<Transaction, Long>{
 	
 	@Query("select u from Transaction u where u.fromAccNumber = :accNo order by timestamp desc")
 	List<Transaction> findTopTransactionByAccNo(@Param("accNo") long accNo);
+
+	@Query("select u from Transaction u where (u.fromAccNumber = :accountNo) and (u.timestamp between :fromDate and :toDate)")
+	List<Transaction> findTransactionsFromDate(Long accountNo, Date fromDate, Date toDate);
 	
 	
 

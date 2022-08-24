@@ -20,7 +20,7 @@ public class TransactionValidator {
 	public TransactionResult validate() {
 		
 		if(amount<0) return new TransactionResult(false, "Amount cannot be less than zero");
-		if(fromAccNo==toAccNo) return new TransactionResult(false, "Cannot send to same account");
+//		if(fromAccNo==toAccNo) return new TransactionResult(false, "Cannot send to same account");
 		if(balance<amount) return new TransactionResult(false, "Insufficient Balance");
 		else return new TransactionResult(true, "Success");
 		

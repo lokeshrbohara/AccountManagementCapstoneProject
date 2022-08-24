@@ -58,6 +58,11 @@ public class Transaction {
 		this.status = status;
 	}
 
+	public Transaction() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
 	public String getResult() {
 		return result;
 	}
@@ -111,6 +116,18 @@ public class Transaction {
 		return "Transaction [transaction_id=" + transaction_id + ", fromAccNumber=" + fromAccNumber + ", toAccNumber="
 				+ toAccNumber + ", amount=" + amount + ", timestamp=" + timestamp + "]";
 	}
+
+	
+	public Transaction(long fromAccNumber, long toAccNumber, double amount, String result, boolean status) {
+//		super();
+		this.fromAccNumber = fromAccNumber;
+		this.toAccNumber = toAccNumber;
+		this.amount = amount;
+		this.result = result;
+		this.status = status;
+	}
+	
+	
 
 
 	
