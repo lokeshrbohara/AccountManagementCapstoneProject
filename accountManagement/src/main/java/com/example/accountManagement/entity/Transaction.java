@@ -12,6 +12,7 @@ import org.hibernate.annotations.CreationTimestamp;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
@@ -22,12 +23,12 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
+@SequenceGenerator(name="seq", initialValue=1000000001, allocationSize=1)
 @Table(name="transactions")
 public class Transaction {
 
-
 	@Id 
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq")
 	@Column(name = "transaction_id")
 	private long transaction_id;
 	
